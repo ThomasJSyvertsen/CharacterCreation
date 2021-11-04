@@ -3,8 +3,13 @@ package dnd.beans;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Thomas Syvertsen - tjsyvertsen
@@ -13,6 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Player {
 	@Id
 	@GeneratedValue
@@ -25,8 +33,14 @@ public class Player {
 	@Autowired
 	private Attributes attributes;
 	@Autowired
-	private Items items;
+	@OneToMany
+	private Item item;
 	
-	
-	
+	public Player(String playerName, String characterName, int totalHitPoints, int currentHitPoints, int hitDamage) {
+		this.playerName = playerName;
+		this.characterName = characterName;
+		this.totalHitPoints = totalHitPoints;
+		this.currentHitPoints = currentHitPoints;
+		this.hitDamage = hitDamage;
+	}
 }

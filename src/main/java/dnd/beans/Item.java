@@ -12,11 +12,8 @@ import lombok.Data;
 
 @Embeddable
 @Data
-public class Attributes {
-	private int strength;
-	private int intelligence;
-	private int wisdom;
-	private int dexterity;
-	private int constitution;
-	private int charisma;
+public class Item {
+	String name;
+	String description;
+	String state;
 }
