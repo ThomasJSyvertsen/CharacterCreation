@@ -3,7 +3,6 @@ package dnd.beans;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,7 +32,6 @@ public class Player {
 	@Autowired
 	private Attributes attributes;
 	@Autowired
-	@OneToMany
 	private Item item;
 	
 	public Player(String playerName, String characterName, int totalHitPoints, int currentHitPoints, int hitDamage) {

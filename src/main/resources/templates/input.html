@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Character</title>
+</head>
+<body>
+	<form th:object="${newPlayer}" th:action="@{/inputPlayer}"
+		method='POST'>
+		Player Name: <input name="playerName" size="20"
+			th:field="*{playerName}">
+		<br /> Character Name: <input name="characterName" size="20"
+			th:field="*{characterName}">
+		<br />
+		Total Hit Points: <input name="totalHitPoints" size="6"
+			th:field="*{totalHitPoints}">
+		<br /> Current Hit Points: <input name="currentHitPoints" size="6"
+			th:field="*{currentHitPoints}">
+		<br /> Hit Damage: <input name="hitDamage" size="6"
+			th:field="*{hitDamage}">
+		<br /> Strength: <input name="attributes.strength" size="2"
+			th:field="*{attributes.strength}">
+		<br /> Intelligence: <input name="attributes.intelligence" size="2"
+			th:field="*{attributes.intelligence}">
+		<br /> Wisdom: <input name="attributes.wisdom" size="2"
+			th:field="*{attributes.wisdom}">
+		<br /> Dexterity: <input name="attributes.dexterity" size="2"
+			th:field="*{attributes.dexterity}">
+		<br /> Constitution: <input name="attributes.constitution" size="2"
+			th:field="*{attributes.constitution}">
+		<br /> Charisma: <input name="attributes.charisma" size="2"
+			th:field="*{attributes.charisma}">
+		<br /> Item Name: <input name="item.name" size="20"
+			th:field="*{item.name}">
+		<br /> Item Description: <input name="item.description" size="10"
+			th:field="*{item.description}">
+		<br /> Item Current State: <input name="item.state" size="10"
+			th:field="*{item.state}">
+		<br />
+		<input name="submit" type="submit" value="submit" />
+		</form>
+		<a href="viewAll">View all Characters</a>
+</body>
+</html>

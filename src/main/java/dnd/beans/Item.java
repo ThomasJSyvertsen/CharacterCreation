@@ -2,7 +2,9 @@ package dnd.beans;
 
 import javax.persistence.Embeddable;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Thomas Syvertsen - tjsyvertsen
@@ -12,6 +14,8 @@ import lombok.Data;
 
 @Embeddable
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Item {
 	String name;
 	String description;

@@ -17,19 +17,19 @@ import dnd.beans.Player;
 public class BeanConfiguration {
 	@Bean
 	public Player player() {
-		Player bean = new Player();
+		Player bean = new Player("Thomas", "Almi", 20, 20, 10);
 		return bean;
 	}
 	
 	@Bean 
 	public Attributes attributes() {
-		Attributes bean = new Attributes();
+		Attributes bean = new Attributes(15, 15, 15, 15, 15, 15);
 		return bean;
 	}
 	
 	@Bean 
 	public Item item() {
-		Item bean = new Item();
+		Item bean = new Item("Unending Flask", "Always have a drink to drink!", "Rusty, do not fret though. It adds spice.");
 		return bean;
 	}
 }
