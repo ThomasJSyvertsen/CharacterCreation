@@ -4,67 +4,96 @@
 <title>Insert New Character</title>
 <link th:rel="stylesheet"
 	th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+<script type="text/javascript">
+	function checkForm() {
+		let form = document.forms["inputForm"];
+		if (form.playerName.value == "") {
+			alert("Player Name must be filled out.");
+			return false;
+		} else if (form.playerName.value.length > 19) {
+			alert("Player Name must be less than 20 characters long.");
+			return false;
+		} else if (form.characterName.value == "") {
+			alert("Character Name must be filled out.");
+			return false;
+		} else if (form.characterName.value.length > 20) {
+			alert("Character Name must be less than 20 characters long.");
+			return false;
+		} else if (form.totalHitPoints.value == "") {
+			alert("Total Hit Points must be a number.");
+			return false;
+		} else if (form.currentHitPoints.value == "") {
+			alert("Current Hit Points must be a number.");
+			return false;
+		} else if (form.hitDamage.value == "") {
+			alert("Hit Damage must be a number.");
+			return false;
+		}
+		
+		return true;
+	}
+</script>
 </head>
 <body>
 	<form th:object="${newPlayer}" th:action="@{/inputPlayer}"
-		method='POST'>
+		name="inputForm" onsubmit="return checkForm()" method='POST'>
 		<div class="form-group col-4">
 			<label for="playerName">Player Name</label> <input type="text"
 				class="form-control" id="playerName" name="playerName" size="20"
-				th:field="*{playerName}">
+				th:field="*{playerName}" required>
 		</div>
 		<div class="form-group col-4">
 			<label for="characterName">Character Name</label> <input type="text"
 				class="form-control" id="characterName" name="characterName"
-				size="20" th:field="*{characterName}">
+				size="20" th:field="*{characterName}" required>
 		</div>
 		<div class="form-group col-4">
 			<label for="totalHitPoints">Total Hit Points</label> <input
-				type="text" class="form-control" id="totalHitPoints"
+				type="number" class="form-control" id="totalHitPoints"
 				name="totalHitPoints" size="6" th:field="*{totalHitPoints}">
 		</div>
 		<div class="form-group col-4">
 			<label for="currentHitPoints">Current Hit Points</label> <input
-				type="text" class="form-control" id="currentHitPoints"
+				type="number" class="form-control" id="currentHitPoints"
 				name="currentHitPoints" size="6" th:field="*{currentHitPoints}">
 		</div>
 		<div class="form-group col-4">
-			<label for="hitDamage">Hit Damage</label> <input type="text"
+			<label for="hitDamage">Hit Damage</label> <input type="number"
 				class="form-control" id="hitDamage" name="hitDamage" size="6"
 				th:field="*{hitDamage}">
 		</div>
 		<div class="form-group col-4">
-			<label for="attributes.strength">Strength</label> <input type="text"
-				class="form-control" id="attributes.strength"
+			<label for="attributes.strength">Strength</label> <input
+				type="number" class="form-control" id="attributes.strength"
 				name="attributes.strength" size="2"
 				th:field="*{attributes.strength}">
 		</div>
 		<div class="form-group col-4">
 			<label for="attributes.intelligence">Intelligence</label> <input
-				type="text" class="form-control" id="attributes.intelligence"
+				type="number" class="form-control" id="attributes.intelligence"
 				name="attributes.intelligence" size="2"
 				th:field="*{attributes.intelligence}">
 		</div>
 		<div class="form-group col-4">
-			<label for="attributes.wisdom">Wisdom</label> <input type="text"
+			<label for="attributes.wisdom">Wisdom</label> <input type="number"
 				class="form-control" id="attributes.wisdom" name="attributes.wisdom"
 				size="2" th:field="*{attributes.wisdom}">
 		</div>
 		<div class="form-group col-4">
 			<label for="attributes.dexterity">Dexterity</label> <input
-				type="text" class="form-control" id="attributes.dexterity"
+				type="number" class="form-control" id="attributes.dexterity"
 				name="attributes.dexterity" size="2"
 				th:field="*{attributes.dexterity}">
 		</div>
 		<div class="form-group col-4">
 			<label for="attributes.constitution">Constitution</label> <input
-				type="text" class="form-control" id="attributes.constitution"
+				type="number" class="form-control" id="attributes.constitution"
 				name="attributes.constitution" size="2"
 				th:field="*{attributes.constitution}">
 		</div>
 		<div class="form-group col-4">
-			<label for="attributes.charisma">Charisma</label> <input type="text"
-				class="form-control" id="attributes.charisma"
+			<label for="attributes.charisma">Charisma</label> <input
+				type="number" class="form-control" id="attributes.charisma"
 				name="attributes.charisma" size="2"
 				th:field="*{attributes.charisma}">
 		</div>
